@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
 <h:head>
     <title>Bank Account Management System</title>
@@ -10,14 +11,16 @@
     <h3>Login here</h3>
     <h:form id="login-form">
         <h:outputLabel for="username" value="username:" />
-        <h:inputText id="username" />
+        <h:inputText id="username" value="#{loginBean.username}"/>
         <br/>
         <h:outputLabel for="password" value="password:" />
-        <h:inputSecret id="password" />
+        <h:inputSecret id="password" value="#{loginBean.password}"/>
         <br/>
-        <h:commandButton id="loginBtn" value="Login" />
+        <h:commandButton id="loginBtn" value="Login" action="#{loginBean.doLogin}"/>
+        <br/>
+        <h:messages />
         <hr/>
-        <h:commandLink value="Sign Up"/>
+        <h:commandLink action="#{navigationBean.redirectToMain}" value="Sign Up"/>
     </h:form>
 </h:body>
 </html>
